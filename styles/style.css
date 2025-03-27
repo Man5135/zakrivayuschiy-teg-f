@@ -13,8 +13,11 @@
 .page {
   margin-bottom: 105px;
   font-family: var(--main-font, "Inter-Variable"), sans-serif;
+  font-variation-settings: "wght" 400, "wdth" 110;
   background-color: var(--background-color);
   background-image: var(--background-image);
+  background-attachment: fixed;
+  background-size: cover;
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
@@ -58,7 +61,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 52px;
 }
 
 .card{
@@ -72,7 +75,7 @@
 
 .card__title{
   margin-top: 3px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   padding-inline: 10px;
   font-family: var(--main-font),sans-serif;
   font-size: 18px;
@@ -91,7 +94,7 @@
   object-fit: cover;
   object-position: center;
   outline: 2px solid #000;
-  inline-size: 100%;
+  inline-size: 100%;  
   aspect-ratio: 1 / 1;
 }
 
@@ -115,7 +118,7 @@
   (text-stroke: 1px var(--background-color)) or
     (-webkit-text-stroke: 1px var(--background-color))
 ) {
-  .card__image__label {
+  .card__img__label {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--background-color);
   }
@@ -131,8 +134,7 @@
   margin-left: 3px;
   font-family: var(--main-font), sans-serif;
   font-size: 18px;
-  line-height: 120%;
-  font-variation-settings: "wght" 400, "wdth" 110;
+  line-height: 21px;
 }
 
 .card__button__container{
@@ -141,7 +143,7 @@
   gap: 0px;
   margin-top: 25px;
   margin-right: 4px;
-  margin-inline-end: auto 0;
+  margin-inline: auto 0;
 }
 
 .card__icon-button{
@@ -170,8 +172,17 @@
   cursor: pointer;
 }
 
+.card__icon-button:focus{
+  border-color: var(--accent-color, #000);
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color, #000);
+}
+
 .button:focus{
-  box-shadow: 2px 2px 0px var(--main-color);
+  box-shadow: 2px 2px 0px var(--main-color,#000);
   outline: none;
 }
 
@@ -204,8 +215,8 @@
   line-height: 0.9;
   mix-blend-mode: difference;
 }
+
 .card__like-button {
-  padding-left: 0px;
   inline-size: 130px;
   block-size: 38px;
 }
@@ -242,18 +253,13 @@
 
 .contour{
   fill: var(--main-color, #000);
-  transition-duration: 0.1;
+  transition-duration: 0.1s;
 }
 
 .core{
   fill: transparent;
   transition-delay: 0.03s;
   transition-duration: 0.3s;
-}
-
-.card__icon-button{
-  border: var(--accent-color, #000);
-  outline: none;
 }
 
 .like-icon{
@@ -326,6 +332,18 @@
 }
 
 .dialog{
+  display: none;
+  pointer-events: auto;
+}
+
+.dialog__form{
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-rows: 1fr auto;
+  row-gap: 30px;
+}
+
+.dialog[open]{
   position: fixed;
   display: flex;
   justify-content: center;
@@ -341,18 +359,6 @@
   background-color: var(--background-color);
   transition: opacity 0.3s;
   max-inline-size: 353px;
-}
-
-.dialog__form{
-  display: grid;
-  grid-template-columns: 0.3fr 1fr;
-  grid-template-rows: 1fr fit-content;
-  row-gap: 30px;
-}
-
-.dialog:not([open]){
-  opacity: 0;
-  pointer-events: none;
 }
 
 .dialog__button{
@@ -402,18 +408,24 @@
 }
 
 @media (width <= 375px){
+  .header{
+    padding-top: 120px;
+    padding-bottom: 120px;
+    margin-bottom: 102px;
+  }
   .card-list{
     margin-bottom: 0;
   }
 
   .card__title{
     padding-inline: 10px;
-    line-height: 120%;
+    line-height: 21px;
   }
 
   .card__img{
     margin-bottom: 6px;
   }
+  
 
   .card__img__label{
     inset-inline-end: 10px;
@@ -427,6 +439,7 @@
     padding-inline: 0px;
   }
 
+
   .card__content{
     padding-bottom: 22px;
   }
@@ -436,7 +449,7 @@
     gap: 10px;
     margin: 50px auto 0;
     padding: 15px 20px;
-    max-inline-size: 306px;
+    max-inline-size: 310px;
   }
   .save__button-image {
     block-size: 28px;
