@@ -125,7 +125,7 @@
 }
 
 .card__content{
-  padding: 20px;
+  padding: 20px 20px;
   padding-bottom: 25px;
 }
 
@@ -139,8 +139,9 @@
 
 .card__button__container{
   display: flex;
-  justify-content: flex-end;
-  gap: 0px;
+  align-items: center;
+  justify-content: end;
+  gap: 5px;
   margin-top: 25px;
   margin-right: 4px;
   margin-inline: auto 0;
@@ -153,7 +154,7 @@
   box-sizing: border-box;
   height: 38px;
   border: 2px solid var(--background-color);
-  padding: 4px;
+  padding: 2px;
   background-color: var(--background-color);
   transition: border-color 0.3s ease;
   cursor: pointer;
@@ -263,6 +264,9 @@
 }
 
 .like-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 39px;
   height: 36px;
 }
@@ -338,13 +342,13 @@
 
 .dialog__form{
   display: grid;
-  grid-template-columns: 0.3fr 1fr;
+  grid-template-columns: 39px 1fr;
+  gap:20px;
   grid-template-rows: 1fr auto;
   row-gap: 30px;
 }
 
 .dialog[open]{
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -364,7 +368,7 @@
 .dialog__button{
   grid-column: 1 / 3;
   grid-row: 2;
-  padding: 9px 0;
+  padding: 10px 0;
   text-transform: uppercase;
   background-color: var(--background-color);
 }
@@ -451,6 +455,14 @@
     padding: 15px 20px;
     max-inline-size: 310px;
   }
+  .dialog[open]{
+    max-inline-size: 341px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-top: 30px;
+    padding-right: 40px; 
+  }
+
   .save__button-image {
     block-size: 28px;
   }
