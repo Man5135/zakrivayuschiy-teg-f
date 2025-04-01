@@ -154,7 +154,7 @@
   box-sizing: border-box;
   height: 38px;
   border: 2px solid var(--background-color);
-  padding: 2px;
+  padding: 0px;
   background-color: var(--background-color);
   transition: border-color 0.3s ease;
   cursor: pointer;
@@ -429,7 +429,10 @@
   .card__img{
     margin-bottom: 6px;
   }
-  
+
+  .card__button__container{
+    margin-right: 5px;
+  }
 
   .card__img__label{
     inset-inline-end: 10px;
@@ -443,7 +446,6 @@
     padding-inline: 0px;
   }
 
-
   .card__content{
     padding-bottom: 22px;
   }
@@ -455,6 +457,7 @@
     padding: 15px 20px;
     max-inline-size: 310px;
   }
+  
   .dialog[open]{
     max-inline-size: 341px;
     padding-bottom: 30px;
